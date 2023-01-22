@@ -40,43 +40,71 @@ struct SkillsScreen: View {
     let skillC35: String = "C3.5 : S'exprimer en public pour présenter son travail"
     
     var body: some View {
-        List {
-            
-            Section(header: VStack (alignment: .leading) {
-                Text(headerC1.uppercased()).foregroundColor(.orange)
-                Text(headlineC1).font(.headline).foregroundColor(.gray)
-            }) {
-                Text(skillC11)
-                Text(skillC12)
-            }.headerProminence(.increased)
-            
-            Section(header: VStack (alignment: .leading) {
-                Text(headerC2.uppercased()).foregroundColor(.orange)
-                Text(headlineC2).font(.headline).foregroundColor(.gray)
-            }) {
-                Text(skillC21)
-                Text(skillC22)
-                Text(skillC23)
-                Text(skillC23)
-                Text(skillC25)
-            }.headerProminence(.increased)
-            
-            Section(header: VStack (alignment: .leading) {
-                Text(headerC3.uppercased()).foregroundColor(.orange)
-                Text(headlineC3).font(.headline).foregroundColor(.gray)
-            }) {
-                Text(skillC31)
-                Text(skillC32)
-                Text(skillC33)
-                Text(skillC34)
-                Text(skillC35)
-            }.headerProminence(.increased)
+        NavigationStack {
+            List {
+                
+                
+                Section(header: VStack (alignment: .leading) {
+                    Text(headerC1.uppercased()).foregroundColor(.orange)
+                    Text(headlineC1).font(.headline).foregroundColor(.gray)
+                }) {
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC11)
+                    }
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC12)
+                    }
+                }.headerProminence(.increased)
+                
+                
+                Section(header: VStack (alignment: .leading) {
+                    Text(headerC2.uppercased()).foregroundColor(.orange)
+                    Text(headlineC2).font(.headline).foregroundColor(.gray)
+                }) {
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC21)
+                    }
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC22)
+                    }
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC23)
+                    }
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC23)
+                    }
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC25)
+                    }
+                }.headerProminence(.increased)
+                
+                Section(header: VStack (alignment: .leading) {
+                    Text(headerC3.uppercased()).foregroundColor(.orange)
+                    Text(headlineC3).font(.headline).foregroundColor(.gray)
+                }) {
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC31)
+                    }
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC32)
+                    }
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC33)
+                    }
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC34)
+                    }
+                    NavigationLink(destination: SkillDetailsScreen()) {
+                        Text(skillC35)
+                    }
+                }.headerProminence(.increased)
+            }.navigationTitle("Bloc de compétences")
         }
     }
 }
 
 struct SkillsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        SkillsScreen()
+        SkillsScreen().environmentObject(User())
     }
 }

@@ -19,38 +19,38 @@ import SwiftUI
 
 struct ProfileScreen: View {
     
-    
+    @EnvironmentObject var user: User
     let spacingSection: Double = 30.0
-    let profileImage: String = "image_profil"
-    var age: Int = 36
-    let name: String = "John Doe"
-    let email: String = "johndoe@secret-mail.com"
-    let bio: String = "Je suis un apprenant autodidacte avec une passion pour la programmation et la technologie."
-    var showPersonalInfo: Bool = true
+    
+    @State var showEditScreen: Bool = false
+
     
     var body: some View {
+        NavigationView {
             ScrollView() {
                 
-                VStack(spacing: 18) {
-                    Spacer().frame(height: 24)
-                    Image(profileImage)
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                        .clipShape(Circle())
-                    
-                    Text(name)
-                        .font(.title)
-                    if (showPersonalInfo) {
-                        Text("\(age) ans")
-                        Text(email).font(.subheadline)
+                ZStack {
+                    Color.orange
+                    VStack(spacing: 18) {
+                        Spacer().frame(height: 24)
+                        Image(user.profileImage)
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .clipShape(Circle())
+                        
+                        Text(user.name)
+                            .font(.title)
+                        if (user.showPersonalInfo) {
+                            Text("\(user.age) ans")
+                            Text(user.email).font(.subheadline)
+                        }
+                        
+                        Spacer().frame(height: 24)
+                        
                     }
-                    
-                    Spacer().frame(height: 24)
-                    
+                    .foregroundColor(.white)
                 }
-                .frame(maxWidth: .infinity)
-                .background(Color.orange)
-                .foregroundColor(.white)
+                
                 
                 VStack(alignment: .leading, spacing: 16) {
                     
@@ -58,7 +58,7 @@ struct ProfileScreen: View {
                         Text("Bio")
                             .foregroundColor(.orange)
                             .font(.headline)
-                        Text(bio)
+                        Text(user.bio)
                             .font(.body)
                     }
                     
@@ -109,13 +109,29 @@ struct ProfileScreen: View {
                     }
                     
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
             }
+            .navigationTitle("Profil")
+            .toolbar{
+                Button(action: {
+                    showEditScreen = true
+                }, label: {
+                    HStack {
+                        Image(systemName: "pencil.tip.crop.circle")
+                    }
+                    
+                })
+            }
+            .sheet(isPresented: $showEditScreen) {
+                ProfieEditionScreen()
+            }
         }
+    }
 }
 
 struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileScreen()
+        ProfileScreen().environmentObject(User())
     }
 }

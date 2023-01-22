@@ -21,127 +21,131 @@ import Charts
 
 struct DashboardScreen: View {
     
+    @EnvironmentObject var user: User
     let skillsBlocVerticalSpacing: Double = 8
-    var globalProgression: Int = 54
-    var c1Progression: Int = 50
-    var c2Progression: Int = 40
-    var c3Progression: Int = 60
-    
+
     var body: some View {
-        ScrollView {
-            
-            VStack(spacing: 24) {
-                Text("Progression globale")
-                    .font(.system(size: 36))
-                Text("\(globalProgression)%")
-                    .font(.system(size: 120, weight: .black, design: .serif))
-            }.frame(maxWidth: .infinity)
-                .background(Color.orange)
-                .foregroundColor(.white)
-            
-            VStack(alignment: .leading) {
+        NavigationView {
+            ScrollView {
                 
-                Spacer().frame(height: 36)
-                
-                VStack(alignment: .leading, spacing: skillsBlocVerticalSpacing) {
-                    HStack {
-                        Text("Bloc de compétences C1")
-                        Text(" - ")
-                        Text("\(c1Progression)%")
-                            .font(.system(size: 18, weight: .black, design: .serif))
-                            .foregroundColor(Color.orange)
-                    }.font(.headline)
-                    
-                    HStack {
-                        Text("C1.1")
-                        Text("acquis").foregroundColor(.teal)
+                ZStack {
+                    Color.orange
+                    VStack(spacing: 24) {
+                        Text("Progression globale")
+                            .font(.system(size: 36))
+                        Text("\(user.globalProgression)%")
+                            .font(.system(size: 120, weight: .black, design: .serif))
                     }
-                    HStack {
-                        Text("C1.2")
-                        Text("non acquis").foregroundColor(.pink)
-                    }
+                    .foregroundColor(.white)
                 }
                 
-                Spacer().frame(height: 36)
-                
-                VStack(alignment: .leading, spacing: skillsBlocVerticalSpacing)  {
-                    HStack {
-                        Text("Bloc de compétences C2")
-                        Text(" - ")
-                        Text("\(c2Progression)%")
-                            .font(.system(size: 18, weight: .black, design: .serif))
-                            .foregroundColor(Color.orange)
-                    }.font(.headline)
+                VStack(alignment: .leading) {
                     
-                    HStack {
-                        Text("C2.1")
-                        Text("non acquis").foregroundColor(.pink)
-                    }
-                    HStack {
-                        Text("C2.2")
-                        Text("non acquis").foregroundColor(.pink)
-                    }
-                    HStack {
-                        Text("C2.3")
-                        Text("acquis").foregroundColor(.teal)
-                    }
-                    HStack {
-                        Text("C2.4")
-                        Text("non acquis").foregroundColor(.pink)
-                    }
-                    HStack {
-                        Text("C2.5")
-                        Text("acquis").foregroundColor(.teal)
-                    }
-                }
-                
-                Spacer().frame(height: 36)
-                
-                VStack(alignment: .leading, spacing: skillsBlocVerticalSpacing)  {
-                    HStack {
-                        Text("Bloc de compétences C3")
-                        Text(" - ")
-                        Text("\(c3Progression)%")
-                            .font(.system(size: 18, weight: .black, design: .serif))
-                            .foregroundColor(Color.orange)
-                    }
-                    .font(.headline)
+                    Spacer().frame(height: 36)
                     
-                    HStack {
-                        Text("C3.1")
-                        Text("acquis").foregroundColor(.teal)
+                    VStack(alignment: .leading, spacing: skillsBlocVerticalSpacing) {
+                        HStack {
+                            Text("Bloc de compétences C1")
+                            Text(" - ")
+                            Text("\(user.c1Progression)%")
+                                .font(.system(size: 18, weight: .black, design: .serif))
+                                .foregroundColor(Color.orange)
+                        }.font(.headline)
+                        
+                        HStack {
+                            Text("C1.1")
+                            getAcquisitionText(acquisition: user.isC11Acquired)
+                        }
+                        HStack {
+                            Text("C1.2")
+                            getAcquisitionText(acquisition: user.isC12Acquired)
+                        }
                     }
-                    HStack {
-                        Text("C3.2")
-                        Text("acquis").foregroundColor(.teal)
+                    
+                    Spacer().frame(height: 36)
+                    
+                    VStack(alignment: .leading, spacing: skillsBlocVerticalSpacing)  {
+                        HStack {
+                            Text("Bloc de compétences C2")
+                            Text(" - ")
+                            Text("\(user.c2Progression)%")
+                                .font(.system(size: 18, weight: .black, design: .serif))
+                                .foregroundColor(Color.orange)
+                        }.font(.headline)
+                        
+                        HStack {
+                            Text("C2.1")
+                            getAcquisitionText(acquisition: user.isC21Acquired)
+                        }
+                        HStack {
+                            Text("C2.2")
+                            getAcquisitionText(acquisition: user.isC22Acquired)
+                        }
+                        HStack {
+                            Text("C2.3")
+                            getAcquisitionText(acquisition: user.isC23Acquired)
+                        }
+                        HStack {
+                            Text("C2.4")
+                            getAcquisitionText(acquisition: user.isC24Acquired)
+                        }
+                        HStack {
+                            Text("C2.5")
+                            getAcquisitionText(acquisition: user.isC25Acquired)
+                        }
                     }
-                    HStack {
-                        Text("C3.3")
-                        Text("acquis").foregroundColor(.teal)
+                    
+                    Spacer().frame(height: 36)
+                    
+                    VStack(alignment: .leading, spacing: skillsBlocVerticalSpacing)  {
+                        HStack {
+                            Text("Bloc de compétences C3")
+                            Text(" - ")
+                            Text("\(user.c3Progression)%")
+                                .font(.system(size: 18, weight: .black, design: .serif))
+                                .foregroundColor(Color.orange)
+                        }
+                        .font(.headline)
+                        
+                        HStack {
+                            Text("C3.1")
+                            getAcquisitionText(acquisition: user.isC31Acquired)
+                        }
+                        HStack {
+                            Text("C3.2")
+                            getAcquisitionText(acquisition: user.isC32Acquired)
+                        }
+                        HStack {
+                            Text("C3.3")
+                            getAcquisitionText(acquisition: user.isC33Acquired)
+                        }
+                        HStack {
+                            Text("C3.4")
+                            getAcquisitionText(acquisition: user.isC34Acquired)
+                        }
+                        HStack {
+                            Text("C3.5")
+                            getAcquisitionText(acquisition: user.isC35Acquired)
+                        }
                     }
-                    HStack {
-                        Text("C3.4")
-                        Text("non acquis").foregroundColor(.pink)
-                    }
-                    HStack {
-                        Text("C3.5")
-                        Text("non acquis").foregroundColor(.pink)
-                    }
-                }
+                    
+                    
+                }.frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 12)
                 
                 
-            }.frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal, 12)
-            
-            
+            }.navigationTitle("Tableau de bord")
         }
-        
-            
-        
+    }
+    
+    func getAcquisitionText(acquisition: Bool) -> Text {
+        return acquisition ?
+        Text("acquis").foregroundColor(.teal) :
+        Text("non acquis").foregroundColor(.pink)
     }
 }
 
 struct DashboardScreen_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardScreen()
+        DashboardScreen().environmentObject(User())
     }
 }

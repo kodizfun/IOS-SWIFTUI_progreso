@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		121F22D3297DE5FE001AB65C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121F22D2297DE5FE001AB65C /* Models.swift */; };
+		121F22D5297DE83E001AB65C /* ProfieEditionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121F22D4297DE83E001AB65C /* ProfieEditionScreen.swift */; };
+		12CD42E0297DF4A5008F1847 /* SkillDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CD42DF297DF4A5008F1847 /* SkillDetailsScreen.swift */; };
 		12E905A8297D47A400BBF1A1 /* ProgresoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E905A7297D47A400BBF1A1 /* ProgresoApp.swift */; };
 		12E905AA297D47A400BBF1A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E905A9297D47A400BBF1A1 /* ContentView.swift */; };
 		12E905AC297D47A500BBF1A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E905AB297D47A500BBF1A1 /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		121F22D2297DE5FE001AB65C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		121F22D4297DE83E001AB65C /* ProfieEditionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfieEditionScreen.swift; sourceTree = "<group>"; };
+		12CD42DF297DF4A5008F1847 /* SkillDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailsScreen.swift; sourceTree = "<group>"; };
 		12E905A4297D47A400BBF1A1 /* Progreso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Progreso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E905A7297D47A400BBF1A1 /* ProgresoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgresoApp.swift; sourceTree = "<group>"; };
 		12E905A9297D47A400BBF1A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		121F22D1297DE5EF001AB65C /* models */ = {
+			isa = PBXGroup;
+			children = (
+				121F22D2297DE5FE001AB65C /* Models.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		12E9059B297D47A400BBF1A1 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +71,7 @@
 		12E905A6297D47A400BBF1A1 /* Progreso */ = {
 			isa = PBXGroup;
 			children = (
+				121F22D1297DE5EF001AB65C /* models */,
 				12E905B5297D47D700BBF1A1 /* screens */,
 				12E905A7297D47A400BBF1A1 /* ProgresoApp.swift */,
 				12E905A9297D47A400BBF1A1 /* ContentView.swift */,
@@ -80,6 +95,8 @@
 				12E905B6297D47F700BBF1A1 /* DashboardScreen.swift */,
 				12E905B8297D480600BBF1A1 /* ProfileScreen.swift */,
 				12E905BA297D481500BBF1A1 /* SkillsScreen.swift */,
+				121F22D4297DE83E001AB65C /* ProfieEditionScreen.swift */,
+				12CD42DF297DF4A5008F1847 /* SkillDetailsScreen.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -154,11 +171,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12CD42E0297DF4A5008F1847 /* SkillDetailsScreen.swift in Sources */,
 				12E905BB297D481500BBF1A1 /* SkillsScreen.swift in Sources */,
 				12E905AA297D47A400BBF1A1 /* ContentView.swift in Sources */,
 				12E905A8297D47A400BBF1A1 /* ProgresoApp.swift in Sources */,
+				121F22D3297DE5FE001AB65C /* Models.swift in Sources */,
 				12E905B7297D47F700BBF1A1 /* DashboardScreen.swift in Sources */,
 				12E905B9297D480600BBF1A1 /* ProfileScreen.swift in Sources */,
+				121F22D5297DE83E001AB65C /* ProfieEditionScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
